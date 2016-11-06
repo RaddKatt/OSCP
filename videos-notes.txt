@@ -92,3 +92,11 @@ Start/Stop HTTP Web Server:
 		1. service apache2 restart
 					OR
 		2. /etc/init.d/apache2 restart
+_______________________________________________________________
+
+Enabling Services at Boot-Time:
+
+	1. Using the 'update-rc.d' script:
+		
+		update-rc.d ssh enable (Enable SSH to start at boot-time)
+		update-rc.d apache2 enable (Enable Apache to start at boot-time)
