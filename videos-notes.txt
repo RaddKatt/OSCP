@@ -94,9 +94,14 @@ Start/Stop HTTP Web Server:
 		2. /etc/init.d/apache2 restart
 _______________________________________________________________
 
-Enabling Services at Boot-Time:
+Enabling Services at Boot-Time (Service Boot Persistence):
 
 	1. Using the 'update-rc.d' script:
 		
 		update-rc.d ssh enable (Enable SSH to start at boot-time)
 		update-rc.d apache2 enable (Enable Apache to start at boot-time)
+
+	2. Tools for more granular control over services:
+
+		1. rcconf
+		2. sysv-rc-conf
