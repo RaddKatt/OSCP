@@ -1,0 +1,94 @@
+_______________________________________________________________
+
+Finding Files:
+
+	1. locate command:
+
+		ex: locate sbd.exe (be sure to updatedb first!)
+
+	2. which command:
+
+		ex: which sbd
+
+	3. find command:
+
+		ex: find / -name sbd.exe ('/' to search all directories on filesystem)
+		ex: find / -name sbd.exe -exec file {} \; (exec the 'file' command on all results)
+		ex: find / -name sbd.exe -exec shasum {} \; (exec the 'shasum' command on all results)
+_______________________________________________________________
+
+Change Password:
+
+	1. passwd command:
+
+		ex: passwd, enter new password, confirm new password
+_______________________________________________________________
+
+Start/Stop SSH Server:
+	_________________________________________
+
+	1. Using the 'service' command:
+
+		Start SSH:
+
+			service ssh start
+			netstat -antp sshd (to verify)
+			service ssh status (to verify)
+
+		Stop SSH:
+
+			service ssh stop
+			netstat -antp sshd (to verify)
+	_________________________________________
+
+	2. Using the '/etc/init.d' script:
+
+		Note: The 'service' command is just a wrapper for the '/etc/init.d' script)
+		______________________________________
+
+		Start SSH:
+
+			/etc/init.d/ssh start
+			netstat -antp sshd (to verify)
+			/etc/init.d/ssh status (to verify)
+		______________________________________
+
+		Stop SSH:
+
+			/etc/init.d/ssh stop
+			netstat -antp sshd (to verify)
+			/etc/init.d/ssh status (to verify)
+_______________________________________________________________
+
+Start/Stop HTTP Web Server:
+	_________________________________________
+
+	1. Start HTTP (Apache2 webserver):
+
+		"service apache2 start" OR "/etc/init.d/apache2 start"
+		open browser and navigate to http://127.0.0.1/ (to verify)
+		netstat -antp apache2 (also to verify)
+
+		'/var/www/html/' is the default document root of the apache server
+	_________________________________________
+
+	2. Change the web server's index page:
+
+		Change the index.html file in '/var/www/html/':
+			cd /var/www/html
+			mv index.html index.html.bak
+			echo "Kali Linux Rocks!" > index.html
+	_________________________________________
+
+	3. Stop HTTP (Apache2 webserver):
+
+		"service apache2 stop" OR "/etc/init.d/apache2 stop"
+		open browser and navigate to http://127.0.0.1/ (to verify)
+		netstat -antp apache2 (also to verify)
+	_________________________________________
+
+	4. Restart HTTP:
+
+		1. service apache2 restart
+					OR
+		2. /etc/init.d/apache2 restart
